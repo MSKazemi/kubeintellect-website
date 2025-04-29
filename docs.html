@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - KubeIntellect</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="docs-page">
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">KubeIntellect</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="docs.html" class="active">Docs</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="https://github.com/kubeintellect/kubeintellect" target="_blank" class="github-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="docs-container">
+        <aside class="docs-sidebar">
+            <ul>
+                <li><a href="#features">🧩 Features</a></li>
+                <li><a href="#architecture">🏗️ Architecture</a></li>
+                <li><a href="#installation">📦 Installation</a></li>
+                <li><a href="#security">🔒 Security</a></li>
+            </ul>
+        </aside>
+
+        <main class="docs-content">
+            <section id="features" class="doc-section">
+                <h2>🧩 Features</h2>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h3>Query-based Automation</h3>
+                        <p>Use natural language to automate complex Kubernetes tasks. Simply describe what you want to do, and KubeIntellect handles the rest.</p>
+                        <div class="example-box">
+                            <p class="example-title">Example:</p>
+                            <code>"Show me all pods with high memory usage across all namespaces"</code>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <h3>Agent Architecture</h3>
+                        <p>Specialized agents handle different aspects of your Kubernetes environment:</p>
+                        <ul>
+                            <li><strong>Logs Agent:</strong> Retrieves and analyzes pod and container logs</li>
+                            <li><strong>Config Agent:</strong> Manages and validates Kubernetes configurations</li>
+                            <li><strong>Metrics Agent:</strong> Monitors resource usage and performance</li>
+                            <li><strong>Security Agent:</strong> Performs security audits and checks</li>
+                            <li><strong>Code Generator:</strong> Creates custom scripts for complex operations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <h3>Natural Language Control</h3>
+                        <p>No need to remember complex kubectl commands or YAML syntax. Just describe what you need in plain English.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="architecture" class="doc-section">
+                <h2>🏗️ Architecture</h2>
+                <div class="architecture-diagram">
+                    <img src="images/architecture-diagram.svg" alt="KubeIntellect Architecture">
+                </div>
+                <div class="architecture-description">
+                    <h3>Layered Model</h3>
+                    <table class="arch-table">
+                        <tr>
+                            <th>Layer</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>User Interaction Layer</td>
+                            <td>Chat-based interface that takes natural language input</td>
+                        </tr>
+                        <tr>
+                            <td>Task Orchestration Layer</td>
+                            <td>Uses an LLM (GPT-4) with LangGraph to route and sequence tasks</td>
+                        </tr>
+                        <tr>
+                            <td>Execution Layer</td>
+                            <td>Modular agents handle Kubernetes API tasks</td>
+                        </tr>
+                        <tr>
+                            <td>Infrastructure Layer</td>
+                            <td>Manages secure API access to the cluster and enforces RBAC security</td>
+                        </tr>
+                    </table>
+                    
+                    <h3>Technologies</h3>
+                    <ul class="tech-list">
+                        <li><strong>FastAPI</strong> – backend framework</li>
+                        <li><strong>LangChain + LangGraph</strong> – for LLM orchestration</li>
+                        <li><strong>OpenAI GPT-4</strong> – the reasoning engine (can be swapped with local models)</li>
+                        <li><strong>Kubernetes Python Client</strong> – direct access to cluster data</li>
+                        <li><strong>Python REPL</strong> – dynamic code execution</li>
+                        <li><strong>Poetry</strong> – environment & dependency management</li>
+                        <li><strong>LibreChat</strong> – chat interface</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="installation" class="doc-section">
+                <h2>📦 Installation</h2>
+                <div class="installation-steps">
+                    <h3>Prerequisites</h3>
+                    <ul>
+                        <li>Python 3.9+</li>
+                        <li>Poetry</li>
+                        <li>Kubernetes cluster with API access</li>
+                        <li>OpenAI API key (or local LLM setup)</li>
+                    </ul>
+                    
+                    <h3>Setup Instructions</h3>
+                    <div class="code-block">
+                        <pre><code># Clone the repository
+git clone https://github.com/kubeintellect/kubeintellect.git
+cd kubeintellect
+
+# Install dependencies
+poetry install
+
+# Configure environment variables
+cp .env.example .env
+# Edit .env with your API keys and configuration
+
+# Start the application
+poetry run python -m kubeintellect.main</code></pre>
+                    </div>
+                    
+                    <h3>LibreChat Integration</h3>
+                    <p>Follow these steps to connect KubeIntellect to LibreChat for a complete chat interface:</p>
+                    <ol>
+                        <li>Install LibreChat following their documentation</li>
+                        <li>Configure the API endpoint in LibreChat to point to your KubeIntellect instance</li>
+                        <li>Set up authentication if needed</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="security" class="doc-section">
+                <h2>🔒 Security</h2>
+                <div class="security-info">
+                    <div class="security-warning">
+                        <h3>Important Security Considerations</h3>
+                        <p>KubeIntellect has powerful capabilities that require careful security planning:</p>
+                    </div>
+                    
+                    <div class="security-item">
+                        <h4>REPL Caveats</h4>
+                        <p>The Python REPL allows dynamic code execution, which presents potential security risks. Consider:</p>
+                        <ul>
+                            <li>Running in a sandboxed environment</li>
+                            <li>Limiting permissions of the executing user</li>
+                            <li>Implementing code validation before execution</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="security-item">
+                        <h4>RBAC Implementation</h4>
+                        <p>KubeIntellect respects Kubernetes RBAC. Ensure your service account has appropriate permissions:</p>
+                        <ul>
+                            <li>Use the principle of least privilege</li>
+                            <li>Create dedicated service accounts for KubeIntellect</li>
+                            <li>Regularly audit permissions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="security-item">
+                        <h4>Local vs Cloud LLM</h4>
+                        <p>Consider data privacy implications:</p>
+                        <ul>
+                            <li>Cloud LLMs may transmit sensitive data</li>
+                            <li>Local LLMs provide better privacy but may have reduced capabilities</li>
+                            <li>Implement data filtering to prevent sensitive information leakage</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">KubeIntellect</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="docs.html">Docs</a>
+                <a href="demo.html">Demo</a>
+                <a href="about.html">About</a>
+                <a href="https://github.com/kubeintellect/kubeintellect">GitHub</a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 KubeIntellect. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

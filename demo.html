@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - KubeIntellect</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">KubeIntellect</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="docs.html">Docs</a></li>
+                <li><a href="demo.html" class="active">Demo</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="https://github.com/kubeintellect/kubeintellect" target="_blank" class="github-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="demo-container">
+        <section class="demo-intro">
+            <h1>See KubeIntellect in Action</h1>
+            <p>Watch how KubeIntellect simplifies Kubernetes management through natural language commands.</p>
+        </section>
+
+        <section class="demo-video">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/your-video-id" title="KubeIntellect Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section class="demo-examples">
+            <h2>Example Interactions</h2>
+            
+            <div class="example-card">
+                <div class="example-query">
+                    <p class="user-query">"List all pods with errors in each namespace"</p>
+                </div>
+                <div class="example-response">
+                    <pre><code>Searching for pods with errors across all namespaces...
+
+Found 2 pods with errors:
+
+Namespace: production
+- payment-service-5d8b9f7c9d-2xkp3
+  Error: CrashLoopBackOff - Container failed to start
+
+Namespace: monitoring
+- prometheus-alert-7d6f8c9b5-jk2p1
+  Error: ImagePullBackOff - Failed to pull image</code></pre>
+                </div>
+            </div>
+            
+            <div class="example-card">
+                <div class="example-query">
+                    <p class="user-query">"Show CPU and memory usage for nodes in the cluster"</p>
+                </div>
+                <div class="example-response">
+                    <pre><code>Fetching resource metrics for all nodes...
+
+Node: worker-node-1
+- CPU: 76% (3.8/5 cores)
+- Memory: 82% (13.1/16 GB)
+
+Node: worker-node-2
+- CPU: 45% (2.25/5 cores)
+- Memory: 61% (9.8/16 GB)
+
+Node: master-node
+- CPU: 32% (1.28/4 cores)
+- Memory: 58% (7.4/12 GB)</code></pre>
+                </div>
+            </div>
+            
+            <div class="example-card">
+                <div class="example-query">
+                    <p class="user-query">"Check for security vulnerabilities in the default namespace"</p>
+                </div>
+                <div class="example-response">
+                    <pre><code>Running security scan on default namespace...
+
+Security Issues Found:
+1. Privileged Container: nginx-deployment-7b8c9d6f5-xkj2p
+   - Container 'nginx' is running in privileged mode
+   - Recommendation: Remove privileged flag
+
+2. No Resource Limits: redis-cache-5d7f9c8b6-2zxk3
+   - No CPU/memory limits defined
+   - Recommendation: Add resource limits
+
+3. Default Service Account: mysql-db-6c7b8d9f-qw3er
+   - Using default service account with broad permissions
+   - Recommendation: Create dedicated service account</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="live-demo-cta">
+            <h2>Try KubeIntellect Yourself</h2>
+            <p>Ready to experience the power of AI-driven Kubernetes management?</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/kubeintellect/kubeintellect" class="btn primary">Get Started on GitHub</a>
+                <a href="docs.html" class="btn secondary">Read the Docs</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">KubeIntellect</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="docs.html">Docs</a>
+                <a href="demo.html">Demo</a>
+                <a href="about.html">About</a>
+                <a href="https://github.com/kubeintellect/kubeintellect">GitHub</a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 KubeIntellect. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
