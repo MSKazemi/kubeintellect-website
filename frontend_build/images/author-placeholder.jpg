@@ -1,0 +1,6 @@
+<!-- This would be a binary file in reality, but for this example, we're using a placeholder SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#2c3e50" />
+  <circle cx="100" cy="80" r="40" fill="#ecf0f1" />
+  <circle cx="100" cy="220" r="100" fill="#ecf0f1" />
+</svg>
